@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="blocklimiter" default="all">
+  
+  
+  <property file="blocklimiter.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="700m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/*.rbc/**"/>
+    <exclude name="**/*.yarb/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/vssver.scc/**"/>
+    <exclude name="**/vssver2.scc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.war"/>
+    <include name="*.swc"/>
+    <include name="*.zip"/>
+    <include name="*.egg"/>
+    <include name="*.ane"/>
+    <include name="*.jar"/>
+    <include name="*.ear"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+    <exclude name="**/?*.aj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.8" value="${jdk.home.1.8}/bin"/>
+  <path id="jdk.classpath.1.8">
+    <fileset dir="${jdk.home.1.8}">
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/ext/access-bridge-64.jar"/>
+      <include name="jre/lib/ext/cldrdata.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/jaccess.jar"/>
+      <include name="jre/lib/ext/jfxrt.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/nashorn.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/sunmscapi.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/jfxswt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/rt.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.8}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.8}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.8"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.gradle:_aopalliance:aopalliance:1.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/aopalliance/aopalliance/1.0/235ba8b489512805ac13a8f9ea77a1ca5ebe3e8/aopalliance-1.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.flowpowered:flow-math:1.0.3.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.flowpowered/flow-math/1.0.3/d98020239e5015091ad3be927cef9dea0d61a234/flow-math-1.0.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.flowpowered:flow-noise:1.0.1-snapshot.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.flowpowered/flow-noise/1.0.1-SNAPSHOT/bfddff85287441521fb66ec22b59a463190966e1/flow-noise-1.0.1-SNAPSHOT.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.github.ben-manes.caffeine:caffeine:2.3.5.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.github.ben-manes.caffeine/caffeine/2.3.5/672d74bd3fb0611f671ea4bf65e278c8a5d4af3c/caffeine-2.3.5.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.github.ben-manes.caffeine:guava:2.3.5.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.github.ben-manes.caffeine/guava/2.3.5/5f8433eb312b4eb0d92b65f4c11a11da95ed55fb/guava-2.3.5.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.code.findbugs:jsr305:1.3.9.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/1.3.9/40719ea6961c0cb6afaeb6a921eaa1f6afd4cfdf/jsr305-1.3.9.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.code.gson:gson:2.2.4.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.2.4/a60a5e993c98c864010053cb901b7eab25306568/gson-2.2.4.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.guava:guava:17.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.guava/guava/17.0/9c6ef172e8de35fd8d4d8783e4821e57cdef7445/guava-17.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.google.inject:guice:4.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.google.inject/guice/4.0/f990a43d3725781b6db7cd0acf0a8b62dfd1649/guice-4.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_com.typesafe:config:1.3.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/com.typesafe/config/1.3.0/f533aa6ea13e443b50e639d070986c42d03efc35/config-1.3.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_javax.inject:javax.inject:1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_ninja.leaping.configurate:configurate-core:3.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/ninja.leaping.configurate/configurate-core/3.2/166fb82311704208782b4e1faf99dbeac9c84d00/configurate-core-3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_ninja.leaping.configurate:configurate-gson:3.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/ninja.leaping.configurate/configurate-gson/3.2/ace93d4dff2cab93aad3d0544bd08055b3be376e/configurate-gson-3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_ninja.leaping.configurate:configurate-hocon:3.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/ninja.leaping.configurate/configurate-hocon/3.2/9dd0eabf3b1f24a439f28ceba53cb75ab2ac17c5/configurate-hocon-3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_ninja.leaping.configurate:configurate-yaml:3.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/ninja.leaping.configurate/configurate-yaml/3.2/66baeded1dc8e86847dd876c7c7292b96b91ec26/configurate-yaml-3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.apache.commons:commons-lang3:3.3.2.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-lang3/3.3.2/90a3822c38ec8c996e84c16a3477ef632cbc87a3/commons-lang3-3.3.2.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.ow2.asm:asm:5.0.3.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.ow2.asm/asm/5.0.3/dcc2193db20e19e1feca8b1240dbbc4e190824fa/asm-5.0.3.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.slf4j:slf4j-api:1.7.22.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.22/a1c83373863cec7ae8d89dc1c5722d8cb6ec0309/slf4j-api-1.7.22.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.spongepowered:plugin-meta:0.4.1.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.spongepowered/plugin-meta/0.4.1/41378ca359e2b4ad935294d1ca3e533e7cdf8f64/plugin-meta-0.4.1.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.spongepowered:spongeapi:6.0.0.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.spongepowered/spongeapi/6.0.0/b3fecde4b7a5a44fff50e5ad44aa6a140c93fc06/spongeapi-6.0.0.jar"/>
+  </path>
+  
+  <path id="library.gradle:_org.yaml:snakeyaml:1.16.classpath">
+    <pathelement location="${basedir}/../../.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.16/d64fb662c9e42789149f5078a62a22edda786c6a/snakeyaml-1.16.jar"/>
+  </path>
+  
+  <path id="library.mysql-connector-java-5.1.45-bin.classpath">
+    <pathelement location="${basedir}/../../Desktop/mysql-connector-java-5.1.45/mysql-connector-java-5.1.45-bin.jar"/>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  <import file="${basedir}/.idea/modules/module_blocklimiter.xml"/>
+  
+  <import file="${basedir}/.idea/modules/module_blocklimiter_main.xml"/>
+  
+  <import file="${basedir}/.idea/modules/module_blocklimiter_test.xml"/>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.blocklimiter, clean.module.blocklimiter_main, clean.module.blocklimiter_test" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.blocklimiter, compile.module.blocklimiter_main, compile.module.blocklimiter_test" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.blocklimiter:jar" value="${basedir}/../../Desktop/Finalcraft/Servidor Sponge/mods"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.BlockLimiter.jar" value="${artifacts.temp.dir}/BlockLimiter.jar"/>
+  </target>
+  
+  <target name="artifact.blocklimiter:jar" depends="init.artifacts, compile.module.blocklimiter_main" description="Build &#39;BlockLimiter:jar&#39; artifact">
+    <property name="artifact.temp.output.blocklimiter:jar" value="${artifacts.temp.dir}/BlockLimiter_jar"/>
+    <mkdir dir="${artifact.temp.output.blocklimiter:jar}"/>
+    <jar destfile="${temp.jar.path.BlockLimiter.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${blocklimiter_main.output.dir}"/>
+    </jar>
+    <copy file="${temp.jar.path.BlockLimiter.jar}" tofile="${artifact.temp.output.blocklimiter:jar}/BlockLimiter.jar"/>
+  </target>
+  
+  <target name="build.all.artifacts" depends="artifact.blocklimiter:jar" description="Build all artifacts">
+    <mkdir dir="${artifact.output.blocklimiter:jar}"/>
+    <copy todir="${artifact.output.blocklimiter:jar}">
+      <fileset dir="${artifact.temp.output.blocklimiter:jar}"/>
+    </copy>
+    
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>
